@@ -7,13 +7,19 @@
     <link rel="stylesheet" href="styles.css">
     <script src="javascript.js" defer></script>
     <script>
+        
         function printNumber(num) {
-            console.log(num.textContent)
             let toBePrinted = num.textContent;
-            console.log(toBePrinted);
             let print = document.querySelector('.print');
             print.textContent += toBePrinted;
         }
+
+        function printOperator(operator) {
+            let toBePrinted = operator.textContent;
+            let print = document.querySelector('.print');
+            print.textContent += toBePrinted;
+        }
+
     </script>
 </head>
 <body>
