@@ -11,7 +11,19 @@
             let toBePrinted = num.textContent;
             let print = document.querySelector('.print');
             print.textContent += toBePrinted;
+            let display = print.textContent;
+            let toCheck = display.split('');
+            alertLimit(toCheck);
         }
+
+        function alertLimit(toCheck) {
+            if (toCheck.length > 26) {
+                alert("You are reaching the limit! Nugget!");
+                let print = document.querySelector('.print');
+                print.textContent = "";
+            }
+        }
+
     </script>
 </head>
 <body>
