@@ -54,21 +54,37 @@ function printDecimal() {
     let decimal = document.getElementById('decimal');
     decimal.addEventListener('click', () => {
         let print = document.querySelector('.print');
-        if (checkDecimals(print.textContent) == true) {
-            print.textContent += decimal.textContent;
+        let screenText = print.textContent;
+        let checkPrint = screenText.split(' ');
+        let checkNumber = checkPrint[checkPrint.length - 1];
+        if (checkNumber.includes('.')) {
+            return print.textContent;
         } else {
-            alert("invalid!");
+            print.textContent += decimal.textContent;
+            alertLimit(print.textContent);
         }
-       
+
     });
 }
 
-function checkDecimals(content) {
-    let checkingContent = content.split('');
-    if (checkingContent.includes('.')) {
-        return false
-    } else return true;
+function alertLimit(toCheck) {
+    if (toCheck.length > 26) {
+        alert("too long! your input will be cleared!");
+        let print = document.querySelector('.print');
+        print.textContent = "";
+    }
 }
+
+function roundDecimalValues(input) {
+    if (Number.isFinite(+input) == false) {
+        let print = document.querySelector('.print');
+        print.textContent = parseFloat(+input).toFixed(9);
+    } else {
+        console.log(+input)
+        return +input;
+    }
+}
+  
 
 function backspace() {
     let backspace = document.getElementById('backspace');
@@ -98,31 +114,31 @@ function operator(splitEquation) {
         let b = splitEquation[2];
         let print = document.querySelector('.print');
         print.textContent = `${multiply(+a, +b)}`;
-        if (print.textContent % 1 !== 0) print.textContent = parseFloat(`${multiply(+a, +b)}`).toFixed(9);
+        roundDecimalValues(+print.textContent);
     } else if (splitEquation.length >= 3 && splitEquation.includes('÷')) {
         let a = splitEquation[0];
         let b = splitEquation[2];
         let print = document.querySelector('.print');
         print.textContent = `${divide(+a, +b)}`;
-        if (print.textContent % 1 !== 0) print.textContent = parseFloat(`${divide(+a, +b)}`).toFixed(9);
+        roundDecimalValues(+print.textContent);
     } else if (splitEquation.length >= 3 && splitEquation.includes('-')) {
         let a = splitEquation[0];
         let b = splitEquation[2];
         let print = document.querySelector('.print');
         print.textContent = `${subtract(+a, +b)}`;
-        if (print.textContent % 1 !== 0) print.textContent = parseFloat(`${subtract(+a, +b)}`).toFixed(9);
+        roundDecimalValues(+print.textContent);
     } else if (splitEquation.length >= 3 && splitEquation.includes('+')) {
         let a = splitEquation[0];
         let b = splitEquation[2];
         let print = document.querySelector('.print');
         print.textContent = `${add(+a, +b)}`;
-        if (print.textContent % 1 !== 0) print.textContent = parseFloat(`${add(+a, +b)}`).toFixed(9);
+        roundDecimalValues(+print.textContent);
     } else if (splitEquation.length >= 3 && splitEquation.includes('^')) {
         let a = splitEquation[0];
         let b = splitEquation[2];
         let print = document.querySelector('.print');
         print.textContent = `${exponent(+a, +b)}`;
-        if (print.textContent % 1 !== 0) print.textContent = parseFloat(`${exponent(+a, +b)}`).toFixed(9);
+        roundDecimalValues(+print.textContent);
     }   
 }
 
