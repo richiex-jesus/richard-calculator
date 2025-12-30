@@ -98,31 +98,31 @@ function operator(splitEquation) {
         let b = splitEquation[2];
         let print = document.querySelector('.print');
         print.textContent = `${multiply(+a, +b)}`;
-        if (print.textContent % 1 !== 0) print.textContent = parseFloat(`${multiply(+a, +b)}`).toFixed(2);
+        if (print.textContent % 1 !== 0) print.textContent = parseFloat(`${multiply(+a, +b)}`).toFixed(9);
     } else if (splitEquation.length >= 3 && splitEquation.includes('÷')) {
         let a = splitEquation[0];
         let b = splitEquation[2];
         let print = document.querySelector('.print');
         print.textContent = `${divide(+a, +b)}`;
-        if (print.textContent % 1 !== 0) print.textContent = parseFloat(`${divide(+a, +b)}`).toFixed(2);
+        if (print.textContent % 1 !== 0) print.textContent = parseFloat(`${divide(+a, +b)}`).toFixed(9);
     } else if (splitEquation.length >= 3 && splitEquation.includes('-')) {
         let a = splitEquation[0];
         let b = splitEquation[2];
         let print = document.querySelector('.print');
         print.textContent = `${subtract(+a, +b)}`;
-        if (print.textContent % 1 !== 0) print.textContent = parseFloat(`${subtract(+a, +b)}`).toFixed(2);
+        if (print.textContent % 1 !== 0) print.textContent = parseFloat(`${subtract(+a, +b)}`).toFixed(9);
     } else if (splitEquation.length >= 3 && splitEquation.includes('+')) {
         let a = splitEquation[0];
         let b = splitEquation[2];
         let print = document.querySelector('.print');
         print.textContent = `${add(+a, +b)}`;
-        if (print.textContent % 1 !== 0) print.textContent = parseFloat(`${add(+a, +b)}`).toFixed(2);
+        if (print.textContent % 1 !== 0) print.textContent = parseFloat(`${add(+a, +b)}`).toFixed(9);
     } else if (splitEquation.length >= 3 && splitEquation.includes('^')) {
         let a = splitEquation[0];
         let b = splitEquation[2];
         let print = document.querySelector('.print');
         print.textContent = `${exponent(+a, +b)}`;
-        if (print.textContent % 1 !== 0) print.textContent = parseFloat(`${exponent(+a, +b)}`).toFixed(2);
+        if (print.textContent % 1 !== 0) print.textContent = parseFloat(`${exponent(+a, +b)}`).toFixed(9);
     }   
 }
 
