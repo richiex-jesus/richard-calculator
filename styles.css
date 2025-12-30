@@ -11,6 +11,7 @@ body {
     box-sizing: content-box;
     width: 600px;
     height: 1000px;
+    border-radius: 30px;
     background-color: black;
     border: 30px solid black;
     flex-direction: column;
