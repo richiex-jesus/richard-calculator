@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator!</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="javascript.js" defer></script>
+    <script>
+        function handleButtonClick(btn) { 
+            console.log("element:", btn);
+            console.log("button id:", btn.id);
+            // alert('Hello, world!');
+        }
+    </script>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="screen"></div>
+        <div class="touchpad">
+            <button id="btn1" onclick="handleButtonClick(this)">Click me 1</button>
+            <button id="btn2" onclick="handleButtonClick(this)">Click me 2</button>
+            <button id="btn3" onclick="handleButtonClick(this)">Click me 3</button>
+        </div>
+    </div>
+</body>
+</html>
