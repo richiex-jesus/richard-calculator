@@ -7,19 +7,11 @@
     <link rel="stylesheet" href="styles.css">
     <script src="javascript.js" defer></script>
     <script>
-        
         function printNumber(num) {
             let toBePrinted = num.textContent;
             let print = document.querySelector('.print');
             print.textContent += toBePrinted;
         }
-
-        function printOperator(operator) {
-            let toBePrinted = operator.textContent;
-            let print = document.querySelector('.print');
-            print.textContent += " " + toBePrinted + " ";
-        }
-
     </script>
 </head>
 <body>
@@ -30,15 +22,17 @@
         </div>
         <div class="touchpad">
             <div class="grid">
-                <button id="operator-button" onclick="printOperator(this)">+</button>
+                <button id="operator-button">+</button>
             </div>
             <div class="grid clear">
                 <button id="clear">AC</button>
             </div>
-            <div class="grid"></div>
+            <div class="grid">
+                <button id="backspace">←</button>
+            </div>
             <div class="grid"></div>
             <div class="grid">
-                <button id="operator-button" onclick="printOperator(this)">-</button>
+                <button id="operator-button">-</button>
             </div>
             <div class="grid">
                 <button id="number-button" onclick="printNumber(this)">9</button>
@@ -50,7 +44,7 @@
                 <button id="number-button" onclick="printNumber(this)">7</button>
             </div>
             <div class="grid">
-                <button id="operator-button" onclick="printOperator(this)">×</button>
+                <button id="operator-button">×</button>
             </div>
             <div class="grid">
                 <button id="number-button" onclick="printNumber(this)">6</button>
@@ -62,7 +56,7 @@
                 <button id="number-button" onclick="printNumber(this)">4</button>
             </div>
             <div class="grid">
-                <button id="operator-button" onclick="printOperator(this)">÷</button>
+                <button id="operator-button">÷</button>
             </div>
             <div class="grid">
                 <button id="number-button" onclick="printNumber(this)">3</button>
@@ -74,7 +68,7 @@
                 <button id="number-button" onclick="printNumber(this)">1</button>
             </div>
             <div class="grid">
-                <button id="operator-button" onclick="printOperator(this)">^</button>
+                <button id="operator-button">^</button>
             </div>
             <div class="grid">
                 <button id="decimal">.</button>
