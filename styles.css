@@ -1,0 +1,44 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: cyan
+}
+
+.calculator-container {
+    display: flex;
+    flex: 0 0 auto;
+    box-sizing: content-box;
+    width: 600px;
+    height: 1000px;
+    background-color: black;
+    border: 3px solid grey;
+    flex-direction: column;
+}
+
+.screen {
+    display: flex;
+    flex: 0 1 auto;
+    box-sizing: border-box;
+    border-bottom: 3px solid black;
+    background-color: beige;
+    width: 600px;
+    height: 250px;
+}
+
+.touchpad {
+    display: flex;
+    flex-direction: row;
+    width: 600px;
+    height: 750px;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+}
+
+.grid {
+    display: flex;
+    box-sizing: border-box;
+    width: 150px;
+    height: 150px;
+    border: 1px solid white;
+}
