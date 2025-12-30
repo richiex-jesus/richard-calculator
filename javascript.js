@@ -126,7 +126,6 @@ function operator(splitEquation) {
     }   
 }
 
-keyboard();
 printOperator();
 pressEnter();
 printDecimal();
