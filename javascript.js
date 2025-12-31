@@ -26,25 +26,41 @@ let print = document.querySelector('.print');
 
 function keyboard() {
     document.addEventListener('keydown', (e) => {
-        console.log(e);
-        console.log((`${e.key}`).charCodeAt(0));
+        // console.log(e);
+        // console.log((`${e.key}`).charCodeAt(0));
         let ascNum = `${(`${e.key}`).charCodeAt(0)}`;
         if (ascNum >= 48 && ascNum <= 57) {
+            let givenEquation = print.textContent;
+            alertLimit(givenEquation.split(''));
             print.textContent += `${e.key}`;
-            let toCheck = (print.textContent).split('');
-            alertLimit(toCheck);
-        } else if ([42, 43, 45, 94].includes(+ascNum)) {
+        } else if ([43, 45, 94].includes(+ascNum)) {
+            let givenEquation = print.textContent;
+            let splitEquation = givenEquation.split(" ");
+            if (splitEquation.length >= 3) {
+                operator(splitEquation);
+            }
+            alertLimit(givenEquation.split(''));
             print.textContent += " " + `${e.key}` + " ";
-            let toCheck = (print.textContent).split('');
-            alertLimit(toCheck);
         } else if (ascNum == 47) {
+            let givenEquation = print.textContent;
+            let splitEquation = givenEquation.split(" ");
+            if (splitEquation.length >= 3) {
+                operator(splitEquation);
+            }
+            alertLimit(givenEquation.split(''));
             print.textContent += " ÷ ";
-            let toCheck = (print.textContent).split('');
-            alertLimit(toCheck);
+        } else if (ascNum == 42) {
+            let givenEquation = print.textContent;
+            let splitEquation = givenEquation.split(" ");
+            if (splitEquation.length >= 3) {
+                operator(splitEquation);
+            }
+            alertLimit(givenEquation.split(''));
+            print.textContent += " × ";
         } else if (ascNum == 69) {
             let givenEquation = print.textContent;
             let splitEquation = givenEquation.split(' ');
-            let toCheck = (print.textContent).split('');
+            let toCheck = givenEquation.split('');
             alertLimit(toCheck);
             operator(splitEquation);
         } else if (ascNum == 46) {
