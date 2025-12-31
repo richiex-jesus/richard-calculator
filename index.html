@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="styles.css">
     <script src="javascript.js" defer></script>
     <script>
+        
         function printNumber(num) {
             let toBePrinted = num.textContent;
-            let print = document.querySelector('.print');
             print.textContent += toBePrinted;
             let display = print.textContent;
             let toCheck = display.split('');
@@ -19,7 +19,6 @@
         function alertLimit(toCheck) {
             if (toCheck.length > 26) {
                 alert("too long! your input will be cleared!");
-                let print = document.querySelector('.print');
                 print.textContent = "";
             }
         }
