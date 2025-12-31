@@ -24,8 +24,31 @@ function exponent(a, b) {
 
 function keyboard() {
     document.addEventListener('keypress', (e) => {
-        console.log(`${e.key}`);
-        console.log((`${e.key}`).charCodeAt(0));
+        let print = document.querySelector('.print');
+        // console.log(`${e.key}`);
+        // console.log((`${e.key}`).charCodeAt(0));
+        let ascNum = `${((`${e.key}`).charCodeAt(0))}`;
+        if (ascNum >= 48 && ascNum <= 57) {
+            print.textContent += `${e.key}`;
+        } else if ([42, 43, 45].includes(+ascNum)) {
+            print.textContent += " " + `${e.key}` + " ";
+        } else if (ascNum == 47) {
+            print.textContent += " ÷ ";
+        } else if (ascNum == 69) {
+            let givenEquation = print.textContent;
+            let splitEquation = givenEquation.split(' ');
+            operator(splitEquation);
+        } else if (ascNum == 46) {
+            let screenText = print.textContent;
+            let checkPrint = screenText.split(' ');
+            let checkNumber = checkPrint[checkPrint.length - 1];
+            if (checkNumber.includes('.')) {
+                return print.textContent;
+            } else {
+                print.textContent += `${e.key}`;
+                alertLimit(print.textContent);
+            }
+        }
     })
 }
 
@@ -89,7 +112,7 @@ function roundDecimalValues(input) {
         let print = document.querySelector('.print');
         print.textContent = parseFloat(+input).toFixed(9);
     } else {
-        console.log(+input)
+        // console.log(+input)
         return +input;
     }
 }
