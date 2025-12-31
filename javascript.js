@@ -22,9 +22,10 @@ function exponent(a, b) {
     }
 }
 
+let print = document.querySelector('.print');
+
 function keyboard() {
     document.addEventListener('keypress', (e) => {
-        let print = document.querySelector('.print');
         // console.log(`${e.key}`);
         // console.log((`${e.key}`).charCodeAt(0));
         let ascNum = `${((`${e.key}`).charCodeAt(0))}`;
@@ -52,13 +53,10 @@ function keyboard() {
     })
 }
 
-keyboard();
-
 function printOperator() {
     let operatorButtons = document.querySelectorAll('#operator-button');
     operatorButtons.forEach(operatorButton => {
         operatorButton.addEventListener('click', () => {
-            let print = document.querySelector('.print');
             let givenEquation = print.textContent;
             let splitEquation = givenEquation.split(" ");
             if (splitEquation.length >= 3) {
@@ -73,7 +71,6 @@ function printOperator() {
 function pressEnter() {
     let enter = document.getElementById('enter');
     enter.addEventListener('click', () => {
-        let print = document.querySelector('.print');
         let givenEquation = print.textContent;
         console.log(givenEquation);
         let splitEquation = givenEquation.split(' ');
@@ -85,7 +82,6 @@ function pressEnter() {
 function printDecimal() {
     let decimal = document.getElementById('decimal');
     decimal.addEventListener('click', () => {
-        let print = document.querySelector('.print');
         let screenText = print.textContent;
         let checkPrint = screenText.split(' ');
         let checkNumber = checkPrint[checkPrint.length - 1];
@@ -102,14 +98,12 @@ function printDecimal() {
 function alertLimit(toCheck) {
     if (toCheck.length > 26) {
         alert("too long! your input will be cleared!");
-        let print = document.querySelector('.print');
         print.textContent = "";
     }
 }
 
 function roundDecimalValues(input) {
     if (Number.isFinite(+input) == false) {
-        let print = document.querySelector('.print');
         print.textContent = parseFloat(+input).toFixed(9);
     } else {
         // console.log(+input)
@@ -121,7 +115,6 @@ function roundDecimalValues(input) {
 function backspace() {
     let backspace = document.getElementById('backspace');
     backspace.addEventListener('click', () => {
-        let print = document.querySelector('.print');
         let toBeRemoved = print.textContent;
         let removeCharacter = toBeRemoved.split('');
         delete removeCharacter[removeCharacter.length - 1];
@@ -134,46 +127,40 @@ function clear() {
     let clear = document.getElementById('clear');
     clear.addEventListener('click', () => {
         // alert('You have cleared the calculator!');
-        let print = document.querySelector('.print');
         print.textContent = "";
     })
 }
 
 function operator(splitEquation) {
-    
     if (splitEquation.length >= 3 && splitEquation.includes('×')) {
         let a = splitEquation[0];
         let b = splitEquation[2];
-        let print = document.querySelector('.print');
         print.textContent = `${multiply(+a, +b)}`;
         roundDecimalValues(+print.textContent);
     } else if (splitEquation.length >= 3 && splitEquation.includes('÷')) {
         let a = splitEquation[0];
         let b = splitEquation[2];
-        let print = document.querySelector('.print');
         print.textContent = `${divide(+a, +b)}`;
         roundDecimalValues(+print.textContent);
     } else if (splitEquation.length >= 3 && splitEquation.includes('-')) {
         let a = splitEquation[0];
         let b = splitEquation[2];
-        let print = document.querySelector('.print');
         print.textContent = `${subtract(+a, +b)}`;
         roundDecimalValues(+print.textContent);
     } else if (splitEquation.length >= 3 && splitEquation.includes('+')) {
         let a = splitEquation[0];
         let b = splitEquation[2];
-        let print = document.querySelector('.print');
         print.textContent = `${add(+a, +b)}`;
         roundDecimalValues(+print.textContent);
     } else if (splitEquation.length >= 3 && splitEquation.includes('^')) {
         let a = splitEquation[0];
         let b = splitEquation[2];
-        let print = document.querySelector('.print');
         print.textContent = `${exponent(+a, +b)}`;
         roundDecimalValues(+print.textContent);
     }   
 }
 
+keyboard();
 printOperator();
 pressEnter();
 printDecimal();
