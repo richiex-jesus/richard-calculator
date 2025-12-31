@@ -25,10 +25,10 @@ function exponent(a, b) {
 let print = document.querySelector('.print');
 
 function keyboard() {
-    document.addEventListener('keypress', (e) => {
-        // console.log(`${e.key}`);
-        // console.log((`${e.key}`).charCodeAt(0));
-        let ascNum = `${((`${e.key}`).charCodeAt(0))}`;
+    document.addEventListener('keydown', (e) => {
+        console.log(e);
+        console.log((`${e.key}`).charCodeAt(0));
+        let ascNum = `${(`${e.key}`).charCodeAt(0)}`;
         if (ascNum >= 48 && ascNum <= 57) {
             print.textContent += `${e.key}`;
         } else if ([42, 43, 45].includes(+ascNum)) {
@@ -49,6 +49,12 @@ function keyboard() {
                 print.textContent += `${e.key}`;
                 alertLimit(print.textContent);
             }
+        } else if (ascNum == 66) {
+            let toBeRemoved = print.textContent;
+            let removeCharacter = toBeRemoved.split('');
+            delete removeCharacter[removeCharacter.length - 1];
+            let newPrint = removeCharacter.join('');
+            print.textContent = newPrint;
         }
     })
 }
