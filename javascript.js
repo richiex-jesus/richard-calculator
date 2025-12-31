@@ -31,13 +31,21 @@ function keyboard() {
         let ascNum = `${(`${e.key}`).charCodeAt(0)}`;
         if (ascNum >= 48 && ascNum <= 57) {
             print.textContent += `${e.key}`;
-        } else if ([42, 43, 45].includes(+ascNum)) {
+            let toCheck = (print.textContent).split('');
+            alertLimit(toCheck);
+        } else if ([42, 43, 45, 94].includes(+ascNum)) {
             print.textContent += " " + `${e.key}` + " ";
+            let toCheck = (print.textContent).split('');
+            alertLimit(toCheck);
         } else if (ascNum == 47) {
             print.textContent += " ÷ ";
+            let toCheck = (print.textContent).split('');
+            alertLimit(toCheck);
         } else if (ascNum == 69) {
             let givenEquation = print.textContent;
             let splitEquation = givenEquation.split(' ');
+            let toCheck = (print.textContent).split('');
+            alertLimit(toCheck);
             operator(splitEquation);
         } else if (ascNum == 46) {
             let screenText = print.textContent;
@@ -47,7 +55,8 @@ function keyboard() {
                 return print.textContent;
             } else {
                 print.textContent += `${e.key}`;
-                alertLimit(print.textContent);
+                let toCheck = (print.textContent).split('');
+                alertLimit(toCheck);
             }
         } else if (ascNum == 66) {
             let toBeRemoved = print.textContent;
@@ -56,6 +65,7 @@ function keyboard() {
             let newPrint = removeCharacter.join('');
             print.textContent = newPrint;
         }
+        alertLimit(print.textContent);
     })
 }
 
@@ -94,8 +104,8 @@ function printDecimal() {
         if (checkNumber.includes('.')) {
             return print.textContent;
         } else {
+            alertLimit(checkPrint);
             print.textContent += decimal.textContent;
-            alertLimit(print.textContent);
         }
 
     });
