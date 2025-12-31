@@ -22,6 +22,15 @@ function exponent(a, b) {
     }
 }
 
+function keyboard() {
+    document.addEventListener('keypress', (e) => {
+        console.log(`${e.key}`);
+        console.log((`${e.key}`).charCodeAt(0));
+    })
+}
+
+keyboard();
+
 function printOperator() {
     let operatorButtons = document.querySelectorAll('#operator-button');
     operatorButtons.forEach(operatorButton => {
